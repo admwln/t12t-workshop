@@ -46,7 +46,7 @@ export default function LogoCollection() {
       <Grid container sx={{ justifyContent: "center", mt: 0.5, opacity: 0.6 }}>
         {logos.map((logo, index) => (
           <Grid item key={index}>
-            <img src={logo} style={logoStyle} />
+            <img src={logo} style={logoStyle} alt="Logo" />
           </Grid>
         ))}
       </Grid>

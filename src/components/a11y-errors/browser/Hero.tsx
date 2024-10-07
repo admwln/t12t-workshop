@@ -129,7 +129,6 @@ export default function Hero() {
               variant="contained"
               color="primary"
               size="small"
-              tabIndex={10}
               sx={{ minWidth: "fit-content" }}
             >
               Start now

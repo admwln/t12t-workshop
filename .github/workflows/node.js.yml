@@ -5,37 +5,37 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [main, master]
   pull_request:
-    branches: [ main ]
+    branches: [main, master]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3 # Updated to the latest version
+      - uses: actions/checkout@v3 # Updated to the latest version
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v3 # Ensure Node.js version is specified
-      with:
-        node-version: '18' # Or specify the Node.js version you need
-        cache: 'npm'       # Enable npm caching
+      - name: Setup Node.js
+        uses: actions/setup-node@v3 # Ensure Node.js version is specified
+        with:
+          node-version: "18" # Or specify the Node.js version you need
+          cache: "npm" # Enable npm caching
 
-    - name: Cache node modules
-      uses: actions/cache@v3
-      with:
-        path: |
-          ~/.npm
-          node_modules
-          ~/.cache/Cypress
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
+      - name: Cache node modules
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.npm
+            node_modules
+            ~/.cache/Cypress
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
-    - name: Install modules
-      run: npm install
-    - name: Verify Cypress installation (if binary missing)
-      run: npx cypress install # Install Cypress binary if missing
-    - name: Run Cypress tests
-      run: npm run ci:e2e
+      - name: Install modules
+        run: npm install
+      - name: Verify Cypress installation (if binary missing)
+        run: npx cypress install # Install Cypress binary if missing
+      - name: Run Cypress tests
+        run: npm run ci:e2e

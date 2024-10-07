@@ -51,16 +51,16 @@ export default function AppAppBar() {
           >
             <Sitemark />
             <Box sx={{ display: { xs: "none", md: "flex" } }}>
-              <Button variant="text" color="info" size="small" tabIndex={2}>
+              <Button variant="text" color="info" size="small">
                 Features
               </Button>
-              <Button variant="text" color="info" size="small" tabIndex={5}>
+              <Button variant="text" color="info" size="small">
                 Testimonials
               </Button>
-              <Button variant="text" color="info" size="small" tabIndex={4}>
+              <Button variant="text" color="info" size="small">
                 Highlights
               </Button>
-              <Button variant="text" color="info" size="small" tabIndex={10}>
+              <Button variant="text" color="info" size="small">
                 Pricing
               </Button>
               <Button
